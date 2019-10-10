@@ -1,6 +1,15 @@
 package intro_to_array_lists;
 
-public class GuestBook {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+public class GuestBook implements ActionListener {
 	// Create a GUI with two buttons. One button reads "Add Name" and the other button reads "View Names". 
 	// When the add name button is clicked, display an input dialog that asks the user to enter a name. Add
 	// that name to an ArrayList. When the "View Names" button is clicked, display a message dialog that displays
@@ -9,4 +18,46 @@ public class GuestBook {
 	// Guest #2: Sandy Summers
 	// Guest #3: Greg Ganders
 	// Guest #4: Donny Doners
+	JFrame frame;
+	JPanel panel;
+	JButton addName;
+	JButton viewName;
+	
+	ArrayList<String> names = new ArrayList<String>();
+	
+	void run() {
+		frame = new JFrame("Guestbook");
+		panel = new JPanel();
+		addName = new JButton("Add Name");
+		viewName = new JButton("View Names");
+		
+		addName.addActionListener(this);
+		viewName.addActionListener(this);
+		
+		panel.add(addName);
+		panel.add(viewName);
+		frame.add(panel);
+		
+		frame.pack();
+		frame.setLocation(500, 500);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource() == addName) {
+			if(names.size() <= 4) {
+			names.add(JOptionPane.showInputDialog("Please sign the name here:"));
+			}
+			else {
+				JOptionPane.showMessageDialog(null, "The guestbook is full.");
+			}
+		}
+		if (e.getSource() == viewName) {
+			for
+		}
+	}
 }
