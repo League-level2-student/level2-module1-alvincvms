@@ -22,7 +22,8 @@ public class GuestBook implements ActionListener {
 	JPanel panel;
 	JButton addName;
 	JButton viewName;
-	
+	String n;
+	String l = "";
 	ArrayList<String> names = new ArrayList<String>();
 	
 	void run() {
@@ -49,15 +50,19 @@ public class GuestBook implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if(e.getSource() == addName) {
-			if(names.size() <= 4) {
 			names.add(JOptionPane.showInputDialog("Please sign the name here:"));
-			}
-			else {
-				JOptionPane.showMessageDialog(null, "The guestbook is full.");
+			l = "";
+			for(int i = 0; i < names.size(); i++) {
+				
+				n = "guest #" + (i+1) + " " + names.get(i) + "\n";
+				l += n;
+				
 			}
 		}
 		if (e.getSource() == viewName) {
-			for
+			
+			
+			JOptionPane.showMessageDialog(null, l);
 		}
 	}
 }
